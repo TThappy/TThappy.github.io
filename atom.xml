@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-12T02:06:46.155Z</updated>
+  <updated>2020-07-15T03:17:50.161Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,24 +17,29 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2020/07/12/hello-world/"/>
-    <id>http://yoursite.com/2020/07/12/hello-world/</id>
-    <published>2020-07-12T02:06:46.155Z</published>
-    <updated>2020-07-12T02:06:46.155Z</updated>
+    <title>Docker在linux系统安装</title>
+    <link href="http://yoursite.com/2020/07/14/Docker%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/"/>
+    <id>http://yoursite.com/2020/07/14/Docker%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/</id>
+    <published>2020-07-14T14:09:53.000Z</published>
+    <updated>2020-07-15T03:17:50.161Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2><h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3><div class="hljs"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">"My New Post"</span></code></pre></div><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server"></a> Run server</h3><div class="hljs"><pre><code class="hljs bash">$ hexo server</code></pre></div><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files"></a> Generate static files</h3><div class="hljs"><pre><code class="hljs bash">$ hexo generate</code></pre></div><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites"></a> Deploy to remote sites</h3><div class="hljs"><pre><code class="hljs bash">$ hexo deploy</code></pre></div><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="docker在linux系统安装"><a class="markdownIt-Anchor" href="#docker在linux系统安装"></a> Docker在linux系统安装</h1><h3 id="删除旧版本的docker目录文件"><a class="markdownIt-Anchor" href="#删除旧版本的docker目录文件"></a> 删除旧版本的docker目录文件</h3><div class="hljs"><pre><code class="hljs html">$ sudo yum remove docker \                  docker-client \                  docker-client-latest \                  docker-common \                  docker-latest \                  docker-latest-logrotate \                  docker-logrotate \                  docker-engine</code></pre></div><h3 id="安装docker的仓库repository"><a class="markdownIt-Anchor" href="#安装docker的仓库repository"></a> 安装docker的仓库(repository)</h3><div class="hljs"><pre><code class="hljs html">$ sudo yum install -y yum-utils</code></pre></div><div class="hljs"><pre><code class="hljs html">$ sudo yum-config-manager \    --add-repo \    https://download.docker.com/linux/centos/docker-ce.repo</code></pre></div><h3 id="下载docker驱动"><a class="markdownIt-Anchor" href="#下载docker驱动"></a> 下载docker驱动</h3><div class="hljs"><pre><code class="hljs html">$ sudo yum install docker-ce docker-ce-cli containerd.io</code></pre></div><h3 id="启动docker"><a class="markdownIt-Anchor" href="#启动docker"></a> 启动docker</h3><div class="hljs"><pre><code class="hljs html">$ sudo systemctl start docker</code></pre></div><h3 id="设置docker开机自启"><a class="markdownIt-Anchor" href="#设置docker开机自启"></a> 设置docker开机自启</h3><div class="hljs"><pre><code class="hljs html">$ sudo systemctl enable docker</code></pre></div><h3 id="查看镜像列表"><a class="markdownIt-Anchor" href="#查看镜像列表"></a> 查看镜像列表</h3><div class="hljs"><pre><code class="hljs html">$ sudo docker images</code></pre></div><h3 id="查看容器列表"><a class="markdownIt-Anchor" href="#查看容器列表"></a> 查看容器列表</h3><div class="hljs"><pre><code class="hljs html">$ sudo docker ps</code></pre></div>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+        &lt;h1 id=&quot;docker在linux系统安装&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#docker在linux系统安装&quot;&gt;&lt;/a&gt; Docker在linux系统安装&lt;/h1&gt;
+&lt;h3 id=&quot;删除旧版本的docker目录文件&quot;&gt;&lt;a clas
       
     
     </summary>
     
     
+      <category term="Docker" scheme="http://yoursite.com/categories/Docker/"/>
+    
+    
+      <category term="Docker" scheme="http://yoursite.com/tags/Docker/"/>
     
   </entry>
   
