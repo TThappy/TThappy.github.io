@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" type="image/png" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Orange">
+  <meta name="keywords" content="">
+  <title>python gui界面和pygame库 - Orange</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/vs2015.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Orange" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Orange</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-07-16 23:04">
+      July 16, 2020 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      53
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：a few seconds ago
+                
+              </p>
+            
+            <article class="markdown-body">
+              <h1 id="gui界面设计和pygame"><a class="markdownIt-Anchor" href="#gui界面设计和pygame"></a> gui界面设计和pygame</h1>
+<h2 id="tkinter-库"><a class="markdownIt-Anchor" href="#tkinter-库"></a> tkinter 库</h2>
+<h3 id="label-和button标签"><a class="markdownIt-Anchor" href="#label-和button标签"></a> Label 和Button标签</h3>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># coding=gbk</span>
+<span class="hljs-keyword">import</span> tkinter <span class="hljs-keyword">as</span> tk
+
+<span class="hljs-comment">#界面配置</span>
+window = tk.Tk() <span class="hljs-comment">#设置一个window界面</span>
+window.title(<span class="hljs-string">'my window'</span>) <span class="hljs-comment">#设置界面标题</span>
+window.geometry(<span class="hljs-string">'300x300'</span>) <span class="hljs-comment">#设置界面大小300x300像素</span>
+
+var = tk.StringVar() <span class="hljs-comment">#tk字符串变量</span>
+l = tk.Label(window,textvariable=var,bg=<span class="hljs-string">'green'</span>,font=(<span class="hljs-string">'Arial'</span>,<span class="hljs-number">12</span>),width=<span class="hljs-number">15</span>,height=<span class="hljs-number">2</span>) <span class="hljs-comment">#Label的配置</span>
+l.pack() <span class="hljs-comment">#放置Label标签</span>
+
+on_hit = <span class="hljs-literal">False</span>
+<span class="hljs-comment">#设置点击事件</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hitMe</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">global</span> on_hit
+    <span class="hljs-keyword">if</span> on_hit == <span class="hljs-literal">False</span>:
+        on_hit = <span class="hljs-literal">True</span>
+        var.set(<span class="hljs-string">"you hit me"</span>)
+    <span class="hljs-keyword">else</span>:
+        on_hit = <span class="hljs-literal">False</span>
+        var.set(<span class="hljs-string">''</span>)
+
+bt = tk.Button(window,text=<span class="hljs-string">'hit me'</span>,width=<span class="hljs-number">15</span>,height=<span class="hljs-number">2</span>,command=hitMe) <span class="hljs-comment">#Button标签,command是事件方法</span>
+bt.pack()
+window.mainloop() <span class="hljs-comment">#不断刷新界面</span></code></pre></div>
+<h3 id="entry-和text-输入文本框"><a class="markdownIt-Anchor" href="#entry-和text-输入文本框"></a> Entry 和Text 输入,文本框</h3>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># coding=gbk</span>
+<span class="hljs-keyword">import</span> tkinter <span class="hljs-keyword">as</span> tk
+
+<span class="hljs-comment">#界面配置</span>
+window = tk.Tk() <span class="hljs-comment">#设置一个window界面</span>
+window.title(<span class="hljs-string">'my window'</span>) <span class="hljs-comment">#设置界面标题</span>
+window.geometry(<span class="hljs-string">'300x300'</span>) <span class="hljs-comment">#设置界面大小300x300像素</span>
+
+e = tk.Entry(window,show=<span class="hljs-literal">None</span>) <span class="hljs-comment">#show可以设置字符样式 例如*</span>
+e.pack()
+<span class="hljs-comment">#设置点击事件</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">insertPoint</span><span class="hljs-params">()</span>:</span>
+    var = e.get()
+    t.insert(<span class="hljs-string">'insert'</span>,var) <span class="hljs-comment">#设置insert方法</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">insertEnd</span><span class="hljs-params">()</span>:</span>
+    var = e.get()
+    t.insert(<span class="hljs-string">'end'</span>,var) <span class="hljs-comment">#插入到最后面</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">insertIndex</span><span class="hljs-params">()</span>:</span>
+    var = e.get()
+    t.insert(<span class="hljs-number">1.1</span>,var)  <span class="hljs-comment">#插入到第一行第二列</span>
+bt1 = tk.Button(window,text=<span class="hljs-string">'insert point'</span>,width=<span class="hljs-number">15</span>,height=<span class="hljs-number">2</span>,command=insertPoint) <span class="hljs-comment">#Button标签,command是事件方法</span>
+bt1.pack()
+bt2 = tk.Button(window,text=<span class="hljs-string">'insert end'</span> ,width=<span class="hljs-number">15</span>,height=<span class="hljs-number">2</span>,command=insertEnd)
+bt2.pack()
+bt3 = tk.Button(window,text=<span class="hljs-string">'insert index'</span>,width=<span class="hljs-number">15</span>,height=<span class="hljs-number">2</span>,command=insertIndex)
+bt3.pack()
+
+t = tk.Text(window,height=<span class="hljs-number">2</span>) <span class="hljs-comment">#Text标签</span>
+t.pack()
+window.mainloop() <span class="hljs-comment">#不断刷新界面</span></code></pre></div>
+<h3 id="listbox-列表组件"><a class="markdownIt-Anchor" href="#listbox-列表组件"></a> Listbox 列表组件</h3>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># coding=gbk</span>
+<span class="hljs-keyword">import</span> tkinter <span class="hljs-keyword">as</span> tk
+
+<span class="hljs-comment">#界面配置</span>
+window = tk.Tk() <span class="hljs-comment">#设置一个window界面</span>
+window.title(<span class="hljs-string">'my window'</span>) <span class="hljs-comment">#设置界面标题</span>
+window.geometry(<span class="hljs-string">'300x300'</span>) <span class="hljs-comment">#设置界面大小300x300像素</span>
+
+var1 = tk.StringVar()
+l = tk.Label(window,textvariable=var1,bg=<span class="hljs-string">'green'</span>,width=<span class="hljs-number">4</span>)
+l.pack()
+
+<span class="hljs-comment">#设置点击事件</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">insertPoint</span><span class="hljs-params">()</span>:</span>
+    value = lstBox.get(lstBox.curselection()) <span class="hljs-comment">#获取光标选定的值</span>
+    var1.set(value)
+
+bt1 = tk.Button(window,text=<span class="hljs-string">'print selection'</span>,width=<span class="hljs-number">15</span>,height=<span class="hljs-number">2</span>,command=insertPoint) <span class="hljs-comment">#Button标签,command是事件方法</span>
+bt1.pack()
+
+var2 = tk.StringVar()
+var2.set((<span class="hljs-number">11</span>,<span class="hljs-number">22</span>,<span class="hljs-number">33</span>,<span class="hljs-number">44</span>,<span class="hljs-number">55</span>))
+lstBox = tk.Listbox(window,listvariable=var2) <span class="hljs-comment">#listBox标签,用listvariable定义list</span>
+lstBox.pack()
+<span class="hljs-comment">#插入listBox第二种方法</span>
+list_items = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]
+<span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> list_items:
+    lstBox.insert(<span class="hljs-string">'end'</span>,item)
+<span class="hljs-comment">#插入listBox第三种方法</span>
+lstBox.insert(<span class="hljs-number">1</span>,<span class="hljs-string">'first'</span>)
+lstBox.insert(<span class="hljs-number">2</span>,<span class="hljs-string">'second'</span>)
+<span class="hljs-comment"># lstBox.delete(1)</span>
+
+window.mainloop() <span class="hljs-comment">#不断刷新界面</span></code></pre></div>
+<h3 id="radiobutton-选择按钮"><a class="markdownIt-Anchor" href="#radiobutton-选择按钮"></a> Radiobutton 选择按钮</h3>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># coding=gbk</span>
+<span class="hljs-keyword">import</span> tkinter <span class="hljs-keyword">as</span> tk
+
+<span class="hljs-comment">#界面配置</span>
+window = tk.Tk() <span class="hljs-comment">#设置一个window界面</span>
+window.title(<span class="hljs-string">'my window'</span>) <span class="hljs-comment">#设置界面标题</span>
+window.geometry(<span class="hljs-string">'300x300'</span>) <span class="hljs-comment">#设置界面大小300x300像素</span>
+
+var = tk.StringVar()
+l = tk.Label(window,text=<span class="hljs-string">'empty'</span>,bg=<span class="hljs-string">'green'</span>,width=<span class="hljs-number">20</span>)
+l.pack()
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printSelection</span><span class="hljs-params">()</span>:</span>
+    l.config(text=<span class="hljs-string">'you have selected '</span> + var.get())
+r1 = tk.Radiobutton(window,text=<span class="hljs-string">'Option A'</span>,variable=var,value=<span class="hljs-string">'A'</span>,command=printSelection) <span class="hljs-comment">#Radiobutton标签,将value赋值给variable,command是点击按钮方法</span>
+r1.pack()
+r2 = tk.Radiobutton(window,text=<span class="hljs-string">'Option B'</span>,variable=var,value=<span class="hljs-string">'B'</span>,command=printSelection) <span class="hljs-comment">#Radiobutton标签,将value赋值给variable</span>
+r2.pack()
+
+window.mainloop() <span class="hljs-comment">#不断刷新界面</span></code></pre></div>
+<h3 id="scale-尺度"><a class="markdownIt-Anchor" href="#scale-尺度"></a> Scale 尺度</h3>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># coding=gbk</span>
+<span class="hljs-keyword">import</span> tkinter <span class="hljs-keyword">as</span> tk
+
+<span class="hljs-comment">#界面配置</span>
+window = tk.Tk() <span class="hljs-comment">#设置一个window界面</span>
+window.title(<span class="hljs-string">'my window'</span>) <span class="hljs-comment">#设置界面标题</span>
+window.geometry(<span class="hljs-string">'300x300'</span>) <span class="hljs-comment">#设置界面大小300x300像素</span>
+
+var = tk.StringVar()
+l = tk.Label(window,text=<span class="hljs-string">'empty'</span>,bg=<span class="hljs-string">'green'</span>,width=<span class="hljs-number">20</span>)
+l.pack()
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printSelection</span><span class="hljs-params">(v)</span>:</span>
+    <span class="hljs-string">'''</span>
+<span class="hljs-string">    :param v: value的值</span>
+<span class="hljs-string">    :return: </span>
+<span class="hljs-string">    '''</span>
+    l.config(text=<span class="hljs-string">'you have selected '</span> + v)
+
+s = tk.Scale(window,label=<span class="hljs-string">'try me'</span>,from_=<span class="hljs-number">5</span>,to=<span class="hljs-number">11</span>,orient=tk.HORIZONTAL,length=<span class="hljs-number">300</span>,showvalue=<span class="hljs-number">1</span>,tickinterval=<span class="hljs-number">3</span>,resolution=<span class="hljs-number">0.01</span>,command=printSelection) <span class="hljs-comment">#Scale标签,从5到10,横项的,长度300,是否显示0,步长3,精度0.01</span>
+s.pack()
+window.mainloop() <span class="hljs-comment">#不断刷新界面</span></code></pre></div>
+<h3 id="checkbutton-勾选项"><a class="markdownIt-Anchor" href="#checkbutton-勾选项"></a> Checkbutton 勾选项</h3>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># coding=gbk</span>
+<span class="hljs-keyword">import</span> tkinter <span class="hljs-keyword">as</span> tk
+
+<span class="hljs-comment">#界面配置</span>
+window = tk.Tk() <span class="hljs-comment">#设置一个window界面</span>
+window.title(<span class="hljs-string">'my window'</span>) <span class="hljs-comment">#设置界面标题</span>
+window.geometry(<span class="hljs-string">'300x300'</span>) <span class="hljs-comment">#设置界面大小300x300像素</span>
+
+var = tk.StringVar()
+l = tk.Label(window,text=<span class="hljs-string">'empty'</span>,bg=<span class="hljs-string">'green'</span>,width=<span class="hljs-number">20</span>)
+l.pack()
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printSelection</span><span class="hljs-params">()</span>:</span>
+    print(var1.get(),var2.get())
+    <span class="hljs-keyword">if</span> var1.get() == <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> var2.get() == <span class="hljs-number">0</span>:
+        l.config(text=<span class="hljs-string">'I love only Python'</span>)
+    <span class="hljs-keyword">elif</span> var1.get() == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> var2.get() == <span class="hljs-number">1</span>:
+        l.config(text=<span class="hljs-string">'I love only C++'</span>)
+    <span class="hljs-keyword">elif</span> var1.get() == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> var2.get() == <span class="hljs-number">0</span>:
+        l.config(text=<span class="hljs-string">'I do not love either'</span>)
+    <span class="hljs-keyword">else</span>:
+        l.config(text=<span class="hljs-string">'I love both'</span>)
+
+var1 = tk.IntVar()
+var2 = tk.IntVar()
+c1 = tk.Checkbutton(window,text=<span class="hljs-string">'Python'</span>,variable=var1,onvalue=<span class="hljs-number">1</span>,offvalue=<span class="hljs-number">0</span>,command=printSelection) <span class="hljs-comment">#Checkbutton标签,选中赋值var1为1,不选中为0</span>
+c2 = tk.Checkbutton(window,text=<span class="hljs-string">'C++'</span>,variable=var2,onvalue=<span class="hljs-number">1</span>,offvalue=<span class="hljs-number">0</span>,command=printSelection) <span class="hljs-comment">#Checkbutton标签,选中赋值var1为1,不选中为0</span>
+c1.pack()
+c2.pack()
+window.mainloop() <span class="hljs-comment">#不断刷新界面</span></code></pre></div>
+<h3 id="canvas-画布"><a class="markdownIt-Anchor" href="#canvas-画布"></a> Canvas 画布</h3>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># coding=gbk</span>
+<span class="hljs-keyword">import</span> tkinter <span class="hljs-keyword">as</span> tk
+
+<span class="hljs-comment">#界面配置</span>
+window = tk.Tk() <span class="hljs-comment">#设置一个window界面</span>
+window.title(<span class="hljs-string">'my window'</span>) <span class="hljs-comment">#设置界面标题</span>
+window.geometry(<span class="hljs-string">'300x300'</span>) <span class="hljs-comment">#设置界面大小300x300像素</span>
+
+canvas = tk.Canvas(window,bg=<span class="hljs-string">'blue'</span>,height=<span class="hljs-number">150</span>,width=<span class="hljs-number">300</span>,)
+image_file = tk.PhotoImage(file=<span class="hljs-string">'tk.gif'</span>) <span class="hljs-comment">#获取图片,只能是gif</span>
+image = canvas.create_image(<span class="hljs-number">10</span>,<span class="hljs-number">10</span>,anchor=<span class="hljs-string">'nw'</span>,image=image_file) <span class="hljs-comment">#创建图片,锚定的点为nw方向</span>
+x0,y0,x1,y1 = <span class="hljs-number">50</span>,<span class="hljs-number">50</span>,<span class="hljs-number">80</span>,<span class="hljs-number">80</span>
+line = canvas.create_line(x0,y0,x1,y1) <span class="hljs-comment">#画线从(x0,y0)画到(x1,y1)</span>
+oval = canvas.create_oval(x0,y0,x1,y1,fill=<span class="hljs-string">'red'</span>) <span class="hljs-comment">#画圆</span>
+arc = canvas.create_arc(x0+<span class="hljs-number">30</span>,y0+<span class="hljs-number">30</span>,x1+<span class="hljs-number">30</span>,y1+<span class="hljs-number">30</span>,start=<span class="hljs-number">0</span>,extent=<span class="hljs-number">180</span>) <span class="hljs-comment">#扇形</span>
+rect = canvas.create_rectangle(<span class="hljs-number">200</span>,<span class="hljs-number">20</span>,<span class="hljs-number">200</span>+<span class="hljs-number">30</span>,<span class="hljs-number">20</span>+<span class="hljs-number">30</span>) <span class="hljs-comment">#矩形</span>
+canvas.pack()
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveIt</span><span class="hljs-params">()</span>:</span>
+    canvas.move(rect,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>) <span class="hljs-comment">#移动平移0,下移2</span>
+b = tk.Button(window,text=<span class="hljs-string">'move'</span>,command=moveIt).pack()
+
+window.mainloop() <span class="hljs-comment">#不断刷新界面</span></code></pre></div>
+<h3 id="menubar-菜单"><a class="markdownIt-Anchor" href="#menubar-菜单"></a> Menubar 菜单</h3>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># coding=gbk</span>
+<span class="hljs-keyword">import</span> tkinter <span class="hljs-keyword">as</span> tk
+
+<span class="hljs-comment">#界面配置</span>
+window = tk.Tk() <span class="hljs-comment">#设置一个window界面</span>
+window.title(<span class="hljs-string">'my window'</span>) <span class="hljs-comment">#设置界面标题</span>
+window.geometry(<span class="hljs-string">'300x300'</span>) <span class="hljs-comment">#设置界面大小300x300像素</span>
+
+l = tk.Label(window,text=<span class="hljs-string">''</span>,bg=<span class="hljs-string">'green'</span>,width=<span class="hljs-number">20</span>)
+l.pack()
+
+count = <span class="hljs-number">0</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">doJob</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">global</span> count
+    l.config(text=<span class="hljs-string">'do'</span> + str(count))
+    count += <span class="hljs-number">1</span>
+menubar = tk.Menu(window) <span class="hljs-comment">#Menu标签</span>
+
+file_menu = tk.Menu(menubar,tearoff=<span class="hljs-number">0</span>) <span class="hljs-comment">#tearoff能否被分开</span>
+menubar.add_cascade(label=<span class="hljs-string">'File'</span>,menu=file_menu) <span class="hljs-comment">#将file_menu放在Menu上</span>
+file_menu.add_command(label=<span class="hljs-string">'New'</span>,command=doJob) <span class="hljs-comment">#增加菜单的功能</span>
+file_menu.add_command(label=<span class="hljs-string">'Open'</span>,command=doJob)
+file_menu.add_command(label=<span class="hljs-string">'Save'</span>,command=doJob)
+file_menu.add_separator() <span class="hljs-comment">#加一条分离线</span>
+file_menu.add_command(label=<span class="hljs-string">'Exit'</span>,command=window.quit)
+
+edit_menu = tk.Menu(menubar,tearoff=<span class="hljs-number">0</span>) <span class="hljs-comment">#tearoff能否被分开</span>
+menubar.add_cascade(label=<span class="hljs-string">'Edit'</span>,menu=edit_menu) <span class="hljs-comment">#将file_menu放在Menu上</span>
+edit_menu.add_command(label=<span class="hljs-string">'Cut'</span>,command=doJob) <span class="hljs-comment">#增加菜单的功能</span>
+edit_menu.add_command(label=<span class="hljs-string">'Copy'</span>,command=doJob)
+edit_menu.add_command(label=<span class="hljs-string">'Paste'</span>,command=doJob)
+
+sub_menu = tk.Menu(menubar,tearoff=<span class="hljs-number">0</span>) <span class="hljs-comment">#file_menu中的分支</span>
+file_menu.add_cascade(label=<span class="hljs-string">'Import'</span>,menu=sub_menu,underline=<span class="hljs-number">0</span>)
+sub_menu.add_command(label=<span class="hljs-string">'Submenu1'</span>,command=doJob)
+
+window.config(menu=menubar)
+window.mainloop() <span class="hljs-comment">#不断刷新界面</span></code></pre></div>
+<h3 id="frame-框架布局"><a class="markdownIt-Anchor" href="#frame-框架布局"></a> Frame 框架布局</h3>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># coding=gbk</span>
+<span class="hljs-keyword">import</span> tkinter <span class="hljs-keyword">as</span> tk
+
+<span class="hljs-comment">#界面配置</span>
+window = tk.Tk() <span class="hljs-comment">#设置一个window界面</span>
+window.title(<span class="hljs-string">'my window'</span>) <span class="hljs-comment">#设置界面标题</span>
+window.geometry(<span class="hljs-string">'300x300'</span>) <span class="hljs-comment">#设置界面大小300x300像素</span>
+
+tk.Label(window,text=<span class="hljs-string">'on the window'</span>).pack()
+
+frm = tk.Frame(window) <span class="hljs-comment">#创建一个frame</span>
+frm.pack()
+frm_left = tk.Frame(frm) <span class="hljs-comment">#将frm_left放在frm中</span>
+frm_right = tk.Frame(frm)
+frm_left.pack(side=<span class="hljs-string">'left'</span>)   <span class="hljs-comment">#放在左边</span>
+frm_right.pack(side=<span class="hljs-string">'right'</span>)
+
+tk.Label(frm_left,text=<span class="hljs-string">'on the frm_l1'</span>).pack()
+tk.Label(frm_left,text=<span class="hljs-string">'on the frm_l2'</span>).pack()
+tk.Label(frm_right,text=<span class="hljs-string">'on the frm_r1'</span>).pack()
+window.mainloop() <span class="hljs-comment">#不断刷新界面</span></code></pre></div>
+<h3 id="messagebox-弹窗"><a class="markdownIt-Anchor" href="#messagebox-弹窗"></a> Messagebox 弹窗</h3>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># coding=gbk</span>
+<span class="hljs-keyword">import</span> tkinter <span class="hljs-keyword">as</span> tk
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> messagebox
+<span class="hljs-comment">#界面配置</span>
+window = tk.Tk() <span class="hljs-comment">#设置一个window界面</span>
+window.title(<span class="hljs-string">'my window'</span>) <span class="hljs-comment">#设置界面标题</span>
+window.geometry(<span class="hljs-string">'300x300'</span>) <span class="hljs-comment">#设置界面大小300x300像素</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hitMe</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-comment"># tk.messagebox.showinfo(title='hi',message='哈哈哈') #弹窗</span>
+    <span class="hljs-comment"># tk.messagebox.showwarning(title='hi',message='no') #警告</span>
+    <span class="hljs-comment"># tk.messagebox.showerror(title='hi',message='哈哈哈') #程序不能运行</span>
+    <span class="hljs-comment"># tk.messagebox.askquestion(title='hi',message='哈哈哈') #return yes or no</span>
+    <span class="hljs-comment"># r = tk.messagebox.askyesno(title='hi',message='哈哈哈') #return True or False</span>
+    <span class="hljs-comment"># tk.messagebox.askretrycancel(title='hi',message='哈哈哈') #return True or False</span>
+    tk.messagebox.askyesnocancel(title=<span class="hljs-string">'hi'</span>,message=<span class="hljs-string">'哈哈哈'</span>) <span class="hljs-comment">#return True or False</span>
+tk.Button(window,text=<span class="hljs-string">'hit me'</span>,command=hitMe).pack()
+window.mainloop() <span class="hljs-comment">#不断刷新界面</span></code></pre></div>
+<h3 id="pack-grid-place-放置位置"><a class="markdownIt-Anchor" href="#pack-grid-place-放置位置"></a> pack grid place 放置位置</h3>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># coding=gbk</span>
+<span class="hljs-keyword">import</span> tkinter <span class="hljs-keyword">as</span> tk
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> messagebox
+<span class="hljs-comment">#界面配置</span>
+window = tk.Tk() <span class="hljs-comment">#设置一个window界面</span>
+window.title(<span class="hljs-string">'my window'</span>) <span class="hljs-comment">#设置界面标题</span>
+window.geometry(<span class="hljs-string">'300x300'</span>) <span class="hljs-comment">#设置界面大小300x300像素</span>
+
+<span class="hljs-comment">#pack用法</span>
+<span class="hljs-comment"># tk.Label(window,bg='green',text=1).pack(side='top')</span>
+<span class="hljs-comment"># tk.Label(window,bg='green',text=1).pack(side='bottom')</span>
+<span class="hljs-comment"># tk.Label(window,bg='green',text=1).pack(side='left')</span>
+<span class="hljs-comment"># tk.Label(window,bg='green',text=1).pack(side='right')</span>
+
+<span class="hljs-comment">#grid用法</span>
+<span class="hljs-comment"># for i in range(4):</span>
+<span class="hljs-comment">#     for j in range(3):</span>
+<span class="hljs-comment">#         tk.Label(window,bg='green',text=1).grid(row=i,column=j,padx=10,pady=10)#间隔</span>
+
+<span class="hljs-comment">#place用法</span>
+tk.Label(window,bg=<span class="hljs-string">'green'</span>,text=<span class="hljs-number">1</span>).place(x=<span class="hljs-number">10</span>,y=<span class="hljs-number">100</span>,anchor=<span class="hljs-string">'nw'</span>)
+window.mainloop() <span class="hljs-comment">#不断刷新界面</span></code></pre></div>
+<h3 id="登录实例"><a class="markdownIt-Anchor" href="#登录实例"></a> 登录实例</h3>
+<h2 id="pygame-库"><a class="markdownIt-Anchor" href="#pygame-库"></a> pygame 库</h2>
+<h3 id="相关对象"><a class="markdownIt-Anchor" href="#相关对象"></a> 相关对象</h3>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment">#屏幕尺寸和模式</span>
+pygame.display.set_mode(size) <span class="hljs-comment">#设置窗口大小</span>
+	<span class="hljs-comment">#一个参数设置大小</span>
+    <span class="hljs-comment">#另一个参数设置屏幕模式</span>
+    	pygame.RESIZABLE <span class="hljs-comment">#可调节</span>
+        pygame.FULLSCREEN <span class="hljs-comment">#全屏</span>
+        pygame.NOFRAME <span class="hljs-comment">#无边框</span>
+pygame.display.Info() <span class="hljs-comment">#生成屏幕相关信息,return 分辨率xXy</span>
+	<span class="hljs-comment">#对象有</span>
+    current_w <span class="hljs-comment">#横</span>
+    current_h <span class="hljs-comment">#纵</span>
+<span class="hljs-comment">#窗口图标和标题</span>
+pygame.display.set_icon() <span class="hljs-comment">#设置图标信息</span>
+pygame.display.set_caption() <span class="hljs-comment">#设置窗口标题 </span>
+pygame.display.get_caption() <span class="hljs-comment">#获得标题和小标题(title,icontitle)</span>
+<span class="hljs-comment">#窗口感知和刷新</span>
+pygame.display.get_active() <span class="hljs-comment">#当窗口在系统中显示时返回True or False</span>
+pygame.display.filp() <span class="hljs-comment">#重新绘制整个屏幕对应的窗口</span>
+pygame.display.update() <span class="hljs-comment">#刷新屏幕</span>
+
+<span class="hljs-comment">#事件 event.type</span>
+pygame.KEYDOWN <span class="hljs-comment">#键盘事件 返回event.key,event.unicode编码,event.mod修饰符</span>
+	pygame.k_UP
+    pygame.k_DOWN
+    pygame.k_LEFT
+    pygame.k_RIGHT
+pygame.QUIT <span class="hljs-comment">#退出事件 </span>
+pygame.VIDEORESIZE <span class="hljs-comment">#窗口大小更改事件 返回event.size</span>
+	pygame.size[<span class="hljs-number">0</span>] <span class="hljs-comment">#宽度</span>
+    pygame.size[<span class="hljs-number">1</span>] <span class="hljs-comment">#高度</span>
+pygame.image.load(<span class="hljs-string">'ball.gif'</span>) <span class="hljs-comment">#加载图片</span>
+get_rect() <span class="hljs-comment">#使得图片对象有一个矩形边</span>
+fclock = pygame.time.Clock() <span class="hljs-comment">#用于操作时间</span>
+fclock.tick(fps) <span class="hljs-comment">#控制帧的刷新速度每秒进行fps次帧</span>
+screen.fill(BLACK)  <span class="hljs-comment">#填充黑色</span>
+screen.blit(ball,ballrect) <span class="hljs-comment">#将ball图像绘制到ballrect上</span>
+pygame.KEYDOWN <span class="hljs-comment">#键盘敲击事件</span>
+
+<span class="hljs-comment">#处理事件</span>
+pygame.event.get()
+pygame.event.poll()
+pygame.event.clear()
+<span class="hljs-comment">#操作事件队列</span>
+pygame.event.set_blocked(type <span class="hljs-keyword">or</span> typelist) <span class="hljs-comment">#控制事件不允许保存到事件队列中</span>
+pygame.event.get_blocked(type) <span class="hljs-comment">#判断事件是否被禁止,返回True or False</span>
+pygame.event.set_allowed(type <span class="hljs-keyword">or</span> typelist) <span class="hljs-comment">#控制事件允许保存到事件队列中</span>
+<span class="hljs-comment">#生成事件</span>
+pygame.event.post(Event) <span class="hljs-comment">#产生一个事件放入事件队列,一般用于用户自定义事件(pygame.USEREVENT)</span>
+pygame.event.Event(type,dict) <span class="hljs-comment">#创建给定类型的事件</span>
+
+<span class="hljs-comment">#鼠标事件</span>
+pygame.event.MOUSEMOTION <span class="hljs-comment">#鼠标移动事件</span>
+	event.pos <span class="hljs-comment">#鼠标当前坐标(x,y),相对于窗口左上角</span>
+    event.rel <span class="hljs-comment">#鼠标相对运动距离(x,y),相当于上次事件</span>
+    event.buttons <span class="hljs-comment">#鼠标移动的三个键状态对应位置值为1反之为0</span>
+pygame.event.MOUSEBUTTONUP <span class="hljs-comment">#鼠标释放事件</span>
+	event.pos <span class="hljs-comment">#鼠标当前坐标(x,y),相对于窗口左上角</span>
+    event.button <span class="hljs-comment">#鼠标的键分别对应0/1/2</span>
+pygame.event.MOUSEBUTTONDOWN <span class="hljs-comment">#鼠标键按下事件</span>
+	event.pos <span class="hljs-comment">#鼠标当前坐标(x,y),相对于窗口左上角</span>
+    event.button <span class="hljs-comment">#鼠标的键左键为1,右键为3</span>
+
+<span class="hljs-comment">#颜色</span>
+pygame.Color(rgba <span class="hljs-keyword">or</span> color) <span class="hljs-comment">#a可选 默认255 不透明为0</span>
+	.r <span class="hljs-comment">#红色通道 0-255</span>
+    .g <span class="hljs-comment">#绿色通道 0-255</span>
+	.b <span class="hljs-comment">#蓝色通道 0-255</span>
+    
+<span class="hljs-comment">#图形绘制机制</span>
+pygame.Rect() <span class="hljs-comment">#返回(left,top) width height</span>
+	.copy()
+    .move() <span class="hljs-comment">#移动,传入速度</span>
+    .inflate()
+    .clamp()
+    .clip()
+    .union()
+    .unionall()
+    .fit()
+    .normalize()
+    <span class="hljs-comment">#详情可参考http://www.pygame.org/docs/ref/rect.html</span>
+pygame.draw 
+	.rect() <span class="hljs-comment">#矩形</span>
+    	<span class="hljs-comment">#参数</span>
+        Surface <span class="hljs-comment">#矩形绘制的屏幕</span>
+        Color <span class="hljs-comment">#矩形绘制的颜色</span>
+        Rect <span class="hljs-comment">#矩形绘制的区域</span>
+        width <span class="hljs-comment">#绘制边缘的宽度,默认为0,即填充图形</span>
+    .line() <span class="hljs-comment">#直线</span>
+    	Surface <span class="hljs-comment">#矩形绘制的屏幕</span>
+        Color <span class="hljs-comment">#矩形绘制的颜色</span>
+        (start_pos,end_pos) <span class="hljs-comment">#直线起始坐标</span>
+        width <span class="hljs-comment">#直线的宽度,默认为1</span>
+    .polygon() <span class="hljs-comment">#多边形</span>
+    	Surface <span class="hljs-comment">#矩形绘制的屏幕</span>
+        Color <span class="hljs-comment">#矩形绘制的颜色</span>
+        pointlist <span class="hljs-comment">#多变形顶点坐标列表</span>
+        width <span class="hljs-comment">#绘制边缘的宽度,默认为0,即填充图形</span>
+    .circle() <span class="hljs-comment">#圆形</span>
+    	Surface <span class="hljs-comment">#矩形绘制的屏幕</span>
+        Color <span class="hljs-comment">#矩形绘制的颜色</span>
+    	pos <span class="hljs-comment">#圆心坐标</span>
+        radius <span class="hljs-comment">#半径</span>
+        width
+    .ellipse() <span class="hljs-comment">#椭圆形</span>
+    	Surface <span class="hljs-comment">#矩形绘制的屏幕</span>
+        Color <span class="hljs-comment">#矩形绘制的颜色</span>
+    	Rect <span class="hljs-comment">#矩形绘制的区域</span>
+        width
+    .arc() <span class="hljs-comment">#椭圆弧形</span>
+    .lines() <span class="hljs-comment">#连续多线</span>
+    	Surface <span class="hljs-comment">#矩形绘制的屏幕</span>
+        Color <span class="hljs-comment">#矩形绘制的颜色</span>
+        closed <span class="hljs-comment">#如果为True,起止节点自动增加封闭直线</span>
+        postlist <span class="hljs-comment">#直线起始坐标列表</span>
+        width <span class="hljs-comment">#直线的宽度,默认为1</span>
+    .aaline() <span class="hljs-comment">#无锯齿线</span>
+    .aalines() <span class="hljs-comment">#连续无锯齿线</span>
+    	Surface <span class="hljs-comment">#矩形绘制的屏幕</span>
+        Color <span class="hljs-comment">#矩形绘制的颜色</span>
+        closed <span class="hljs-comment">#如果为True,起止节点自动增加封闭直线</span>
+        postlist <span class="hljs-comment">#直线起始坐标列表</span>
+        blend = <span class="hljs-number">1</span> <span class="hljs-comment">#不为0时,线条所在的背景颜色进行混合</span>
+<span class="hljs-comment">#文字绘制机制</span>
+pygame.freetype <span class="hljs-comment">#需要额外impot</span>
+pygame.freetype.Font(字体路径,大小) <span class="hljs-comment">#生成字体对象</span>
+	.render_to() <span class="hljs-comment">#返回Rect对象</span>
+    	<span class="hljs-comment">#参数</span>
+        surf <span class="hljs-comment">#绘制字体的屏幕</span>
+        dest <span class="hljs-comment">#具体位置(x,y)</span>
+        text <span class="hljs-comment">#绘制的文字内容</span>
+        fgcolor <span class="hljs-comment">#文字颜色</span>
+        bgcolor <span class="hljs-comment">#背景颜色</span>
+        rotation <span class="hljs-comment">#逆时针旋转角度</span>
+        size <span class="hljs-comment">#字体大小</span>
+    .render() <span class="hljs-comment">#绘制具体文字 返回Rect和Surface对象</span>
+    	<span class="hljs-comment">#参数</span>
+        text <span class="hljs-comment">#文字内容</span>
+        fgcolor,bgcolor
+        rotation
+        size</code></pre></div>
+<h3 id="pygame最小开发框架"><a class="markdownIt-Anchor" href="#pygame最小开发框架"></a> pygame最小开发框架</h3>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># coding=gbk</span>
+<span class="hljs-keyword">import</span> pygame,sys
+
+pygame.init() <span class="hljs-comment">#初始化游戏设置</span>
+screen = pygame.display.set_mode((<span class="hljs-number">600</span>,<span class="hljs-number">400</span>)) <span class="hljs-comment">#设置屏幕大小</span>
+pygame.display.set_caption(<span class="hljs-string">'游戏开发之旅'</span>) <span class="hljs-comment">#设置标题</span>
+
+<span class="hljs-comment">#实现事件无线循环,直到游戏退出</span>
+<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
+    <span class="hljs-keyword">for</span> event <span class="hljs-keyword">in</span> pygame.event.get():
+        <span class="hljs-keyword">if</span> event.type == pygame.QUIT:
+            sys.exit()
+    pygame.display.update()</code></pre></div>
+<h3 id="小球碰壁"><a class="markdownIt-Anchor" href="#小球碰壁"></a> 小球碰壁</h3>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># coding=gbk</span>
+<span class="hljs-keyword">import</span> pygame,sys
+
+<span class="hljs-comment">#游戏初始化</span>
+pygame.init() <span class="hljs-comment">#初始化游戏设置</span>
+size = width,height = <span class="hljs-number">600</span>,<span class="hljs-number">400</span>
+speed = [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]
+print(speed[<span class="hljs-number">0</span>])
+BLACK = <span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>
+still = <span class="hljs-literal">False</span>
+bgcolor = pygame.Color(<span class="hljs-string">'black'</span>)
+screen = pygame.display.set_mode(size,pygame.RESIZABLE) <span class="hljs-comment">#设置屏幕大小</span>
+pygame.display.set_caption(<span class="hljs-string">'小球碰壁'</span>) <span class="hljs-comment">#设置标题</span>
+ball = pygame.image.load(<span class="hljs-string">'ball.gif'</span>)
+icon = pygame.image.load(<span class="hljs-string">'ball.gif'</span>)
+pygame.display.set_icon(icon)
+ballrect = ball.get_rect()
+fps =<span class="hljs-number">300</span>
+fclock = pygame.time.Clock() <span class="hljs-comment">#用于操作时间</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">RGBChannel</span><span class="hljs-params">(a)</span>:</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span> <span class="hljs-keyword">if</span> a&lt;<span class="hljs-number">0</span> <span class="hljs-keyword">else</span> (<span class="hljs-number">255</span> <span class="hljs-keyword">if</span> a&gt;<span class="hljs-number">255</span> <span class="hljs-keyword">else</span> int(a))
+<span class="hljs-comment">#实现事件无线循环,直到游戏退出</span>
+<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
+    <span class="hljs-comment">#事件</span>
+    <span class="hljs-keyword">for</span> event <span class="hljs-keyword">in</span> pygame.event.get():
+        <span class="hljs-keyword">if</span> event.type == pygame.QUIT:
+            sys.exit()
+        <span class="hljs-keyword">elif</span> event.type == pygame.KEYDOWN:
+            <span class="hljs-keyword">if</span> event.key == pygame.K_LEFT:
+                speed[<span class="hljs-number">0</span>] = speed[<span class="hljs-number">0</span>] <span class="hljs-keyword">if</span> speed[<span class="hljs-number">0</span>] == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> (abs(speed[<span class="hljs-number">0</span>]) - <span class="hljs-number">1</span>) * int(speed[<span class="hljs-number">0</span>]/abs(speed[<span class="hljs-number">0</span>]))
+            <span class="hljs-keyword">elif</span> event.key == pygame.K_RIGHT:
+                speed[<span class="hljs-number">0</span>] = speed[<span class="hljs-number">0</span>] + <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> speed[<span class="hljs-number">0</span>] &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> speed[<span class="hljs-number">0</span>] - <span class="hljs-number">1</span>
+            <span class="hljs-keyword">elif</span> event.key == pygame.K_UP:
+                speed[<span class="hljs-number">1</span>] = speed[<span class="hljs-number">1</span>] + <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> speed[<span class="hljs-number">1</span>] &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> speed[<span class="hljs-number">1</span>] - <span class="hljs-number">1</span>
+            <span class="hljs-keyword">elif</span> event.key == pygame.K_DOWN:
+                speed[<span class="hljs-number">1</span>] = speed[<span class="hljs-number">1</span>] <span class="hljs-keyword">if</span> speed[<span class="hljs-number">1</span>] == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> (abs(speed[<span class="hljs-number">1</span>]) - <span class="hljs-number">1</span>) * int(speed[<span class="hljs-number">1</span>]/abs(speed[<span class="hljs-number">1</span>]))
+            <span class="hljs-keyword">elif</span> event.key == pygame.K_ESCAPE:
+                sys.exit()
+        <span class="hljs-keyword">elif</span> event.type == pygame.VIDEORESIZE:
+            size = width,height = event.size[<span class="hljs-number">0</span>],event.size[<span class="hljs-number">1</span>]
+            screen = pygame.display.set_mode(size,pygame.RESIZABLE)
+        <span class="hljs-keyword">elif</span> event.type == pygame.MOUSEBUTTONDOWN:
+            <span class="hljs-keyword">if</span> event.button == <span class="hljs-number">1</span>:
+                still = <span class="hljs-literal">True</span>
+        <span class="hljs-keyword">elif</span> event.type == pygame.MOUSEBUTTONUP:
+            still = <span class="hljs-literal">False</span>
+            <span class="hljs-keyword">if</span> event.button == <span class="hljs-number">1</span>:
+                ballrect = ballrect.move(event.pos[<span class="hljs-number">0</span>] - ballrect.left,event.pos[<span class="hljs-number">1</span>] - ballrect.top)
+        <span class="hljs-keyword">elif</span> event.type == pygame.MOUSEMOTION:
+            ballrect = ballrect.move(event.pos[<span class="hljs-number">0</span>] - ballrect.left,event.pos[<span class="hljs-number">1</span>] - ballrect.top)
+    <span class="hljs-keyword">if</span> pygame.display.get_active() <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> still:
+        ballrect = ballrect.move(speed[<span class="hljs-number">0</span>],speed[<span class="hljs-number">1</span>]) <span class="hljs-comment">#移动</span>
+    <span class="hljs-keyword">if</span> ballrect.left &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> ballrect.right &gt; width:
+        speed[<span class="hljs-number">0</span>] = -speed[<span class="hljs-number">0</span>]
+        <span class="hljs-keyword">if</span> ballrect.right &gt; width <span class="hljs-keyword">and</span> ballrect.right + speed[<span class="hljs-number">0</span>] &gt; ballrect.right:
+            speed[<span class="hljs-number">0</span>] = -speed[<span class="hljs-number">0</span>]
+    <span class="hljs-keyword">if</span> ballrect.top &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> ballrect.bottom &gt; height:
+        speed[<span class="hljs-number">1</span>] = -speed[<span class="hljs-number">1</span>]
+        <span class="hljs-keyword">if</span> ballrect.bottom &gt; height <span class="hljs-keyword">and</span> ballrect.bottom + speed[<span class="hljs-number">1</span>] &gt; ballrect.bottom:
+            speed[<span class="hljs-number">1</span>] = -speed[<span class="hljs-number">1</span>]
+    bgcolor.r = RGBChannel(ballrect.left*<span class="hljs-number">255</span>/width)
+    bgcolor.g = RGBChannel(ballrect.top*<span class="hljs-number">255</span>/height)
+    bgcolor.b = RGBChannel(min(speed[<span class="hljs-number">0</span>],speed[<span class="hljs-number">1</span>])*<span class="hljs-number">255</span>/max(speed[<span class="hljs-number">0</span>],speed[<span class="hljs-number">1</span>],<span class="hljs-number">1</span>))
+    screen.fill(bgcolor)  <span class="hljs-comment">#填充黑色</span>
+    screen.blit(ball,ballrect) <span class="hljs-comment">#将ball图像绘制到ballrect上</span>
+    pygame.display.update()
+    fclock.tick(fps) <span class="hljs-comment">#控制帧的刷新速度每秒进行fps次帧</span></code></pre></div>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Python/">Python</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Gui%E7%95%8C%E9%9D%A2/">Gui界面</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Pygame/">Pygame</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/07/16/Django-rest-framework/">
+                        <span class="hidden-mobile">Django rest framework</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+  <!-- 备案信息 -->
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">苏ICP备19065141号-1</a>
+    
+  </div>
+
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "python gui界面和pygame库&nbsp;",
+      ],
+      cursorChar: "❤",
+      typeSpeed: 50,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
