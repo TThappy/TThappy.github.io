@@ -177,15 +177,16 @@
           
         
         <div> Docker介绍
-​	&lt;% asset_img 1.png %&gt;
+​									
  Docker安装mysql
+ 使用阿里云镜像
  默认安装最新版本的mysql  (latest)
 docker pull mysql
  安装指定版本的mysql
 docker pull mysql:8.0.20
  安装mysql容器
 docker run -p 3306:3306 --name mysql \
--v /mydata/m</div>
+-v /mydata/mysql/log:/</div>
       </a>
 
       <div class="index-btm post-metas">
