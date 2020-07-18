@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Orange">
   <meta name="keywords" content="">
-  <title>Docker介绍和演示 - Orange</title>
+  <title>java项目开发(二) - Orange</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -154,8 +154,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-07-17 12:12">
-      July 17, 2020 pm
+    <time datetime="2020-07-18 19:10">
+      July 18, 2020 pm
     </time>
   </div>
 
@@ -165,7 +165,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      468 字
+      411 字
     </span>
   
 
@@ -175,7 +175,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      5
        分钟
     </span>
   
@@ -207,98 +207,53 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：6 hours ago
+                  本文最后更新于：a minute ago
                 
               </p>
             
             <article class="markdown-body">
-              <h1 id="docker介绍"><a class="markdownIt-Anchor" href="#docker介绍"></a> Docker介绍</h1>
-<p>docker相当于容器可以装好多个liunx</p>
-<p>​									<img src="/2020/07/17/Docker%E4%BB%8B%E7%BB%8D%E5%92%8C%E6%BC%94%E7%A4%BA/1.png" srcset="/img/loading.gif" class></p>
-<h1 id="docker安装mysql"><a class="markdownIt-Anchor" href="#docker安装mysql"></a> Docker安装mysql</h1>
-<h3 id="使用阿里云镜像安装完docker"><a class="markdownIt-Anchor" href="#使用阿里云镜像安装完docker"></a> 使用阿里云镜像(安装完docker)</h3>
-<p>您可以通过修改<code>daemon</code>配置文件<code>/etc/docker/daemon.json</code>来使用加速器</p>
-<div class="hljs"><pre><code class="hljs css">sudo mkdir -p /etc/docker
-sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
-&#123;
-  "registry-mirrors": ["https://jiwuvrmz.mirror.aliyuncs.com"]
-&#125;
-<span class="hljs-selector-tag">EOF</span>
-<span class="hljs-selector-tag">sudo</span> <span class="hljs-selector-tag">systemctl</span> <span class="hljs-selector-tag">daemon-reload</span>
-<span class="hljs-selector-tag">sudo</span> <span class="hljs-selector-tag">systemctl</span> <span class="hljs-selector-tag">restart</span> <span class="hljs-selector-tag">docker</span></code></pre></div>
-<h3 id="默认安装最新版本的mysql-latest"><a class="markdownIt-Anchor" href="#默认安装最新版本的mysql-latest"></a> 默认安装最新版本的mysql  (latest)</h3>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">docker</span> <span class="hljs-selector-tag">pull</span> <span class="hljs-selector-tag">mysql</span></code></pre></div>
-<h3 id="安装指定版本的mysql"><a class="markdownIt-Anchor" href="#安装指定版本的mysql"></a> 安装指定版本的mysql</h3>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">docker</span> <span class="hljs-selector-tag">pull</span> <span class="hljs-selector-tag">mysql</span><span class="hljs-selector-pseudo">:8.0.20</span></code></pre></div>
-<h3 id="安装mysql容器"><a class="markdownIt-Anchor" href="#安装mysql容器"></a> 安装mysql容器</h3>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">docker</span> <span class="hljs-selector-tag">run</span> <span class="hljs-selector-tag">-p</span> 3306<span class="hljs-selector-pseudo">:3306</span> <span class="hljs-selector-tag">--name</span> <span class="hljs-selector-tag">mysql</span> \
--v /mydata/mysql/log:/var/log/mysql \
--v /mydata/mysql/data:/var/lib/mysql \
--v /mydata/mysql/conf:/etc/mysql \
--e MYSQL_ROOT_PASSWORD=root \
-<span class="hljs-selector-tag">-d</span> <span class="hljs-selector-tag">mysql</span><span class="hljs-selector-pseudo">:8.0.20</span></code></pre></div>
-<h3 id="创建mysql配置文件"><a class="markdownIt-Anchor" href="#创建mysql配置文件"></a> 创建mysql配置文件</h3>
-<p>在<code>/mydata/mysql/conf</code>目录下创建文件<code>my.cnf</code></p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-attr">[client]</span>
-default-character-set=utf8mb4
-
-
-<span class="hljs-selector-attr">[mysql]</span>
-default-character-set=utf8mb4
-
-<span class="hljs-selector-attr">[mysqld]</span>
-init_connect='SET collation_connection = utf8_unicode_ci'
-init_connect='SET NAMES utf8'
-character-set-server=utf8
-collation-server=utf8_unicode_ci
-<span class="hljs-selector-tag">skip-character-set-client-handshake</span>
-<span class="hljs-selector-tag">skip-name-resolve</span>
-secure_file_priv=/var/lib/mysql 
-<span class="hljs-selector-tag">skip-grant-tables</span>    #可以跳过登录<span class="hljs-selector-tag">mysql</span></code></pre></div>
-<h3 id="重启容器"><a class="markdownIt-Anchor" href="#重启容器"></a> 重启容器</h3>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">docker</span> <span class="hljs-selector-tag">restart</span> <span class="hljs-selector-tag">mysql</span></code></pre></div>
-<h3 id="进入mysql容器linux系统"><a class="markdownIt-Anchor" href="#进入mysql容器linux系统"></a> 进入mysql容器(linux系统)</h3>
-<div class="hljs"><pre><code class="hljs css">docker exec -it mysql /bin/bash</code></pre></div>
-<h3 id="查看是否成功修改"><a class="markdownIt-Anchor" href="#查看是否成功修改"></a> 查看是否成功修改</h3>
-<div class="hljs"><pre><code class="hljs css">cat /etc/mysql/my.cnf</code></pre></div>
-<h3 id="设置mysql随着docker自启"><a class="markdownIt-Anchor" href="#设置mysql随着docker自启"></a> 设置mysql随着docker自启</h3>
-<div class="hljs"><pre><code class="hljs css">docker update mysql --restart=always
-
-docker update redis --restart=always</code></pre></div>
-<h3 id="mysql远程连接用户创建"><a class="markdownIt-Anchor" href="#mysql远程连接用户创建"></a> mysql远程连接用户创建</h3>
-<div class="hljs"><pre><code class="hljs css">必须先创建用户（密码规则：<span class="hljs-selector-tag">mysql8</span><span class="hljs-selector-class">.0</span>以上密码策略限制必须要大小写加数字特殊符号）：
-
-<span class="hljs-selector-tag">mysql</span>&gt;<span class="hljs-selector-tag">create</span> <span class="hljs-selector-tag">user</span> <span class="hljs-selector-tag">orange</span>@'%' identified  by <span class="hljs-string">'密码'</span>;
-
-再进行赋值：
-
-<span class="hljs-selector-tag">mysql</span>&gt;<span class="hljs-selector-tag">grant</span> <span class="hljs-selector-tag">all</span> <span class="hljs-selector-tag">privileges</span> <span class="hljs-selector-tag">on</span> *.* <span class="hljs-selector-tag">to</span> <span class="hljs-selector-tag">orange</span>@'%' with grant option;
-
-最后刷新一下：
-
-<span class="hljs-selector-tag">mysql</span>&gt;<span class="hljs-selector-tag">flush</span> <span class="hljs-selector-tag">privileges</span>;</code></pre></div>
-<h2 id="docker-安装redis"><a class="markdownIt-Anchor" href="#docker-安装redis"></a> Docker 安装redis</h2>
-<h3 id="安装redis镜像"><a class="markdownIt-Anchor" href="#安装redis镜像"></a> 安装redis镜像</h3>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">docker</span> <span class="hljs-selector-tag">pull</span> <span class="hljs-selector-tag">redis</span></code></pre></div>
-<h3 id="创建实例并启动"><a class="markdownIt-Anchor" href="#创建实例并启动"></a> 创建实例并启动</h3>
-<h4 id="首先创建配置文件和目录"><a class="markdownIt-Anchor" href="#首先创建配置文件和目录"></a> 首先创建配置文件和目录</h4>
-<div class="hljs"><pre><code class="hljs css">mkdir -p /mydata/redis/conf
-touch /mydata/redis/conf/redis.conf</code></pre></div>
-<h4 id="启动容器"><a class="markdownIt-Anchor" href="#启动容器"></a> 启动容器</h4>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">docker</span> <span class="hljs-selector-tag">run</span> <span class="hljs-selector-tag">-p</span> 6379<span class="hljs-selector-pseudo">:6379</span> <span class="hljs-selector-tag">--name</span> <span class="hljs-selector-tag">redis</span> \
--v /mydata/redis/data:/data \
--v /mydata/redis/conf/redis.conf:/etc/redis/redis.conf \
--d redis redis-server /etc/redis/redis.conf</code></pre></div>
-<h4 id="运行redis"><a class="markdownIt-Anchor" href="#运行redis"></a> 运行redis</h4>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">docker</span> <span class="hljs-selector-tag">exec</span> <span class="hljs-selector-tag">-it</span> <span class="hljs-selector-tag">redis</span> <span class="hljs-selector-tag">redis-cli</span></code></pre></div>
-<h4 id="开启-aof-持久化"><a class="markdownIt-Anchor" href="#开启-aof-持久化"></a> 开启 aof 持久化</h4>
-<div class="hljs"><pre><code class="hljs css">vi /mydata/redis/conf/redis.conf
-# 添加如下内容
-<span class="hljs-selector-tag">appendonly</span> <span class="hljs-selector-tag">yes</span></code></pre></div>
-<h4 id="重启redis"><a class="markdownIt-Anchor" href="#重启redis"></a> 重启redis</h4>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">docker</span> <span class="hljs-selector-tag">restart</span> <span class="hljs-selector-tag">redis</span></code></pre></div>
-<h4 id="设置docker自启动"><a class="markdownIt-Anchor" href="#设置docker自启动"></a> 设置Docker自启动</h4>
-<div class="hljs"><pre><code class="hljs css">docker update redis --restart=always</code></pre></div>
+              <h1 id="mysql表设计"><a class="markdownIt-Anchor" href="#mysql表设计"></a> Mysql表设计</h1>
+<h2 id="构建表"><a class="markdownIt-Anchor" href="#构建表"></a> 构建表</h2>
+<p>…</p>
+<h1 id="快速构建后台管理系统"><a class="markdownIt-Anchor" href="#快速构建后台管理系统"></a> 快速构建后台管理系统</h1>
+<h2 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h2>
+<p><strong>前端页面</strong></p>
+<div class="hljs"><pre><code class="hljs css">git clone https://gitee.com/renrenio/renren-fast-vue.git</code></pre></div>
+<p><strong>后端代码</strong></p>
+<div class="hljs"><pre><code class="hljs css">git clone https://gitee.com/renrenio/renren-fast.git</code></pre></div>
+<p><strong>构建<code>admin</code>数据库</strong></p>
+<p>利用<code>navicat</code>创建一个<code>gulimall_admin</code>数据库</p>
+<h2 id="配置后端代码"><a class="markdownIt-Anchor" href="#配置后端代码"></a> 配置后端代码</h2>
+<p>将<code>reren-fast</code>文件夹放入项目根目录,接着导入<code>db</code>目录下的<code>mysql.sql</code>到刚刚创建的数据库表中</p>
+<p>在根目录的<code>pom.yml</code>中添加<code>&lt;module&gt;renren-fast&lt;/module&gt;</code>再刷新maven</p>
+<h3 id="mysql连接配置"><a class="markdownIt-Anchor" href="#mysql连接配置"></a> mysql连接配置</h3>
+<p>找到目录<code>/renren-fast/src/main/resources/application-dev.yml</code>进行相关配置,将<code>ip:port</code>和数据库名称修改并填写<code>mysql的账号密码</code></p>
+<p>​											<img src="/2020/07/18/java%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91(%E4%BA%8C)/1.png" srcset="/img/loading.gif" class></p>
+<h3 id="启动项目"><a class="markdownIt-Anchor" href="#启动项目"></a> 启动项目</h3>
+<p>启动<code>RenrenApplication</code>,出现如下信息即启动成功</p>
+<p>​											<img src="/2020/07/18/java%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91(%E4%BA%8C)/2.png" srcset="/img/loading.gif" class></p>
+<h2 id="配置前端代码"><a class="markdownIt-Anchor" href="#配置前端代码"></a> 配置前端代码</h2>
+<p>将<code>renren-fast-vue</code>文件夹用<code>Vs code</code>打开</p>
+<h3 id="配置环境"><a class="markdownIt-Anchor" href="#配置环境"></a> 配置环境</h3>
+<p>打开终端安装node环境(node.js需要提前安装好,<strong>node需要10.x的版本</strong>)</p>
+<p>node版本切换可查看 <a href="https://weiyalong.top/2020/07/18/NODEJS%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%92%8C%E5%88%87%E6%8D%A2/" target="_blank" rel="noopener">此博客</a></p>
+<p>配置淘宝镜像<code>npm config set registry http://registry.npm.taobao.org/</code>再进行依赖安装</p>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">npm</span> <span class="hljs-selector-tag">install</span></code></pre></div>
+<p>输入以上命令会根据文件夹中<code>package.json</code>文件中需要的依赖安装</p>
+<h3 id="启动项目-2"><a class="markdownIt-Anchor" href="#启动项目-2"></a> 启动项目</h3>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">npm</span> <span class="hljs-selector-tag">run</span> <span class="hljs-selector-tag">dev</span></code></pre></div>
+<p>出现以下信息即启动成功</p>
+<p>​											<img src="/2020/07/18/java%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91(%E4%BA%8C)/3.png" srcset="/img/loading.gif" class></p>
+<h2 id="账号密码"><a class="markdownIt-Anchor" href="#账号密码"></a> 账号密码</h2>
+<p>默认<code>admin/admin</code></p>
+<h1 id="代码生成器"><a class="markdownIt-Anchor" href="#代码生成器"></a> 代码生成器</h1>
+<div class="hljs"><pre><code class="hljs css">git clone https://gitee.com/renrenio/renren-generator.git</code></pre></div>
+<p>将目录导入到项目根目录并在<code>pom.yml</code>中配置<code>module</code></p>
+<h2 id="配置mysql"><a class="markdownIt-Anchor" href="#配置mysql"></a> 配置Mysql</h2>
+<p>在<code>application.yml</code>中配置<code>mysql</code>相关配置一个一个数据库的进行逆向工程搭建</p>
+<p>修改<code>generator.properties</code>中的相关信息</p>
+<p>​											<img src="/2020/07/18/java%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91(%E4%BA%8C)/4.png" srcset="/img/loading.gif" class></p>
+<p>然后运行打开网站,生成代码,将<code>main</code>文件复制到模块中</p>
 
             </article>
             <hr>
@@ -308,7 +263,9 @@ touch /mydata/redis/conf/redis.conf</code></pre></div>
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Docker/">Docker</a>
+                      <a class="hover-with-bg" href="/categories/java/">java</a>
+                    
+                      <a class="hover-with-bg" href="/categories/java/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B/">项目开发实例</a>
                     
                   </div>
                 
@@ -316,7 +273,7 @@ touch /mydata/redis/conf/redis.conf</code></pre></div>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Docker/">Docker</a>
+                      <a class="hover-with-bg" href="/tags/java/">java</a>
                     
                   </div>
                 
@@ -329,18 +286,12 @@ touch /mydata/redis/conf/redis.conf</code></pre></div>
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/07/17/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">小程序开发问题汇总</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/07/16/python-gui%E7%95%8C%E9%9D%A2%E5%92%8Cpygame%E5%BA%93/">
-                        <span class="hidden-mobile">python gui界面和pygame库</span>
+                      <a href="/2020/07/18/java%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91(%E4%B8%80)/">
+                        <span class="hidden-mobile">java项目开发(一)</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -512,7 +463,7 @@ touch /mydata/redis/conf/redis.conf</code></pre></div>
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Docker介绍和演示&nbsp;",
+        "java项目开发(二)&nbsp;",
       ],
       cursorChar: "❤",
       typeSpeed: 50,
