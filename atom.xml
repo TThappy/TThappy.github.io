@@ -46,11 +46,11 @@
   </entry>
   
   <entry>
-    <title>&#39;小程序开发问题汇总&#39;</title>
+    <title>小程序开发问题汇总</title>
     <link href="http://yoursite.com/2020/07/17/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
     <id>http://yoursite.com/2020/07/17/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</id>
     <published>2020-07-17T08:35:02.000Z</published>
-    <updated>2020-07-17T08:37:43.216Z</updated>
+    <updated>2020-07-18T09:03:24.859Z</updated>
     
     <content type="html"><![CDATA[<h1 id="小程序开发问题汇总"><a class="markdownIt-Anchor" href="#小程序开发问题汇总"></a> 小程序开发问题汇总</h1><h2 id="多行文本省略问题"><a class="markdownIt-Anchor" href="#多行文本省略问题"></a> 多行文本省略问题</h2><div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-id">#text-overflow</span>: <span class="hljs-selector-tag">ellipsis</span>;只对<span class="hljs-selector-tag">display</span>：<span class="hljs-selector-tag">inline</span>；起作用#多行显示用以下代码<span class="hljs-selector-tag">-webkit-line-clamp</span>确定省略的行数<span class="hljs-selector-tag">text-overflow</span>: <span class="hljs-selector-tag">-o-ellipsis-lastline</span>;<span class="hljs-selector-tag">overflow</span>: <span class="hljs-selector-tag">hidden</span>;<span class="hljs-selector-tag">text-overflow</span>: <span class="hljs-selector-tag">ellipsis</span>;<span class="hljs-selector-tag">display</span>: <span class="hljs-selector-tag">-webkit-box</span>;<span class="hljs-selector-tag">-webkit-line-clamp</span>: 2;<span class="hljs-selector-tag">line-clamp</span>: 2;<span class="hljs-selector-tag">-webkit-box-orient</span>: <span class="hljs-selector-tag">vertical</span>;</code></pre></div>]]></content>
     
