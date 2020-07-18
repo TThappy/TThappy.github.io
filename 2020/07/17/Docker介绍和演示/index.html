@@ -165,7 +165,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      347 字
+      468 字
     </span>
   
 
@@ -175,7 +175,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      7
        分钟
     </span>
   
@@ -277,6 +277,28 @@ docker update redis --restart=always</code></pre></div>
 最后刷新一下：
 
 <span class="hljs-selector-tag">mysql</span>&gt;<span class="hljs-selector-tag">flush</span> <span class="hljs-selector-tag">privileges</span>;</code></pre></div>
+<h2 id="docker-安装redis"><a class="markdownIt-Anchor" href="#docker-安装redis"></a> Docker 安装redis</h2>
+<h3 id="安装redis镜像"><a class="markdownIt-Anchor" href="#安装redis镜像"></a> 安装redis镜像</h3>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">docker</span> <span class="hljs-selector-tag">pull</span> <span class="hljs-selector-tag">redis</span></code></pre></div>
+<h3 id="创建实例并启动"><a class="markdownIt-Anchor" href="#创建实例并启动"></a> 创建实例并启动</h3>
+<h4 id="首先创建配置文件和目录"><a class="markdownIt-Anchor" href="#首先创建配置文件和目录"></a> 首先创建配置文件和目录</h4>
+<div class="hljs"><pre><code class="hljs css">mkdir -p /mydata/redis/conf
+touch /mydata/redis/conf/redis.conf</code></pre></div>
+<h4 id="启动容器"><a class="markdownIt-Anchor" href="#启动容器"></a> 启动容器</h4>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">docker</span> <span class="hljs-selector-tag">run</span> <span class="hljs-selector-tag">-p</span> 6379<span class="hljs-selector-pseudo">:6379</span> <span class="hljs-selector-tag">--name</span> <span class="hljs-selector-tag">redis</span> \
+-v /mydata/redis/data:/data \
+-v /mydata/redis/conf/redis.conf:/etc/redis/redis.conf \
+-d redis redis-server /etc/redis/redis.conf</code></pre></div>
+<h4 id="运行redis"><a class="markdownIt-Anchor" href="#运行redis"></a> 运行redis</h4>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">docker</span> <span class="hljs-selector-tag">exec</span> <span class="hljs-selector-tag">-it</span> <span class="hljs-selector-tag">redis</span> <span class="hljs-selector-tag">redis-cli</span></code></pre></div>
+<h4 id="开启-aof-持久化"><a class="markdownIt-Anchor" href="#开启-aof-持久化"></a> 开启 aof 持久化</h4>
+<div class="hljs"><pre><code class="hljs css">vi /mydata/redis/conf/redis.conf
+# 添加如下内容
+<span class="hljs-selector-tag">appendonly</span> <span class="hljs-selector-tag">yes</span></code></pre></div>
+<h4 id="重启redis"><a class="markdownIt-Anchor" href="#重启redis"></a> 重启redis</h4>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">docker</span> <span class="hljs-selector-tag">restart</span> <span class="hljs-selector-tag">redis</span></code></pre></div>
+<h4 id="设置docker自启动"><a class="markdownIt-Anchor" href="#设置docker自启动"></a> 设置Docker自启动</h4>
+<div class="hljs"><pre><code class="hljs css">docker update redis --restart=always</code></pre></div>
 
             </article>
             <hr>
