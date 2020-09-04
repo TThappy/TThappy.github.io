@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-18T13:24:41.374Z</updated>
+  <updated>2020-09-04T08:15:37.835Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>爬虫和正则</title>
+    <link href="http://yoursite.com/2020/09/04/%E7%88%AC%E8%99%AB%E5%92%8C%E6%AD%A3%E5%88%99/"/>
+    <id>http://yoursite.com/2020/09/04/%E7%88%AC%E8%99%AB%E5%92%8C%E6%AD%A3%E5%88%99/</id>
+    <published>2020-09-04T08:15:37.000Z</published>
+    <updated>2020-09-04T08:15:37.835Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vue文档学习</title>
+    <link href="http://yoursite.com/2020/07/29/Vue%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2020/07/29/Vue%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/</id>
+    <published>2020-07-29T08:53:24.000Z</published>
+    <updated>2020-07-29T15:24:11.919Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="vue文档学习"><a class="markdownIt-Anchor" href="#vue文档学习"></a> Vue文档学习</h1><h2 id="vue是什么"><a class="markdownIt-Anchor" href="#vue是什么"></a> Vue是什么?</h2><p>Vue (读音 /vjuː/，类似于 <strong>view</strong>) 是一套用于构建用户界面的<strong>渐进式框架</strong>。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与<a href="https://cn.vuejs.org/v2/guide/single-file-components.html" target="_blank" rel="noopener">现代化的工具链</a>以及各种<a href="https://github.com/vuejs/awesome-vue#libraries--plugins" target="_blank" rel="noopener">支持类库</a>结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。</p><h2 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h2><div class="hljs"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 开发环境版本，包含了有帮助的命令行警告 --&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><span class="hljs-comment">&lt;!-- 生产环境版本，优化了尺寸和速度 --&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div><p>或者直接用<code>vue-cli</code>脚手架安装</p><h2 id="声明氏渲染"><a class="markdownIt-Anchor" href="#声明氏渲染"></a> 声明氏渲染</h2><div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>    &#123;&#123;msg&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">    <span class="hljs-keyword">new</span> Vue(&#123;</span><span class="actionscript">        el:<span class="hljs-string">"#app"</span>,</span>        data()&#123;<span class="actionscript">            <span class="hljs-keyword">return</span> &#123;</span><span class="actionscript">                msg:<span class="hljs-string">"hello world"</span></span>            &#125;        &#125;    &#125;)<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;vue文档学习&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#vue文档学习&quot;&gt;&lt;/a&gt; Vue文档学习&lt;/h1&gt;
+&lt;h2 id=&quot;vue是什么&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#vue是什么&quot;&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+  </entry>
   
   <entry>
     <title>java项目开发(二)</title>
