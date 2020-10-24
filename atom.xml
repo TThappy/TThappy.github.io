@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-10-23T15:37:54.568Z</updated>
+  <updated>2020-10-24T07:52:24.491Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MongoDB安装和python连接</title>
+    <link href="http://yoursite.com/2020/10/24/MongoDB%E5%AE%89%E8%A3%85%E5%92%8Cpython%E8%BF%9E%E6%8E%A5/"/>
+    <id>http://yoursite.com/2020/10/24/MongoDB%E5%AE%89%E8%A3%85%E5%92%8Cpython%E8%BF%9E%E6%8E%A5/</id>
+    <published>2020-10-24T06:37:15.000Z</published>
+    <updated>2020-10-24T07:52:24.491Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="安装mongodb"><a class="markdownIt-Anchor" href="#安装mongodb"></a> 安装MongoDB</h1><p>这里只介绍用docker安装MongoDB并用navicat远程连接</p><h2 id="安装镜像"><a class="markdownIt-Anchor" href="#安装镜像"></a> 安装镜像</h2><div class="hljs"><pre><code class="hljs html">docker pull mongo:latest</code></pre></div><h2 id="运行容器"><a class="markdownIt-Anchor" href="#运行容器"></a> 运行容器</h2><div class="hljs"><pre><code class="hljs html">docker run -itd --name mongo -p 27017:27017 mongo --auth</code></pre></div><h2 id="设置服务器的端口防火墙"><a class="markdownIt-Anchor" href="#设置服务器的端口防火墙"></a> 设置服务器的端口防火墙</h2><p>添加安全规则，打开<code>27017</code>端口</p><h2 id="创建用户"><a class="markdownIt-Anchor" href="#创建用户"></a> 创建用户</h2><p>使用MongoDB自带的<code>admin</code>数据库创建用户</p><div class="hljs"><pre><code class="hljs python">$ docker <span class="hljs-keyword">exec</span> -it mongo mongo admin<span class="hljs-comment"># 创建一个名为 admin，密码为 123456 的用户。</span>&gt;  db.createUser(&#123; user:<span class="hljs-string">'admin'</span>,pwd:<span class="hljs-string">'123456'</span>,roles:[ &#123; role:<span class="hljs-string">'userAdminAnyDatabase'</span>, db: <span class="hljs-string">'admin'</span>&#125;,<span class="hljs-string">"readWriteAnyDatabase"</span>]&#125;);<span class="hljs-comment"># 尝试使用上面创建的用户信息进行连接。</span>&gt; db.auth(<span class="hljs-string">'admin'</span>, <span class="hljs-string">'123456'</span>)</code></pre></div><h2 id="更改mongodcnforig配置文件"><a class="markdownIt-Anchor" href="#更改mongodcnforig配置文件"></a> 更改<code>mongod.cnf.orig</code>配置文件</h2><h3 id="进入mongodb容器"><a class="markdownIt-Anchor" href="#进入mongodb容器"></a> 进入MongoDB容器</h3><p><code>docker exec -it mongo /bin/bash</code></p><h3 id="安装vim"><a class="markdownIt-Anchor" href="#安装vim"></a> 安装vim</h3><ol><li><code>apt-get update</code></li><li><code>apt-get install vim</code></li></ol><h3 id="修改配置文件"><a class="markdownIt-Anchor" href="#修改配置文件"></a> 修改配置文件</h3><p>进入<code>/etc</code>用<code>vim mongod.cnf.orig</code>打开文件修改以下内容</p><div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># network interfaces</span>net:  port: <span class="hljs-number">27017</span>  bindIp: <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span> security:  authorization: <span class="hljs-string">'enabled'</span></code></pre></div><h3 id="重启mongodb容器"><a class="markdownIt-Anchor" href="#重启mongodb容器"></a> 重启MongoDB容器</h3><p><code>docker restart mongo</code></p><p>接着就可以远程使用<code>navicat</code>连接了，用刚刚创建的用户，数据库写<code>admin</code></p><h1 id="python使用mongodb"><a class="markdownIt-Anchor" href="#python使用mongodb"></a> Python使用MongoDB</h1><h2 id="安装pymongo"><a class="markdownIt-Anchor" href="#安装pymongo"></a> 安装pymongo</h2><p><code>pip install pymongo</code></p><h2 id="连接"><a class="markdownIt-Anchor" href="#连接"></a> 连接</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pymongoclient = pymongo.MongoClient(<span class="hljs-string">'mongodb://用户名:密码@ip:27017/'</span>)db = client.test <span class="hljs-comment">#连接test数据库</span>collection = db.students <span class="hljs-comment">#stdents表</span>result = collection.insert_one(&#123;<span class="hljs-string">'id'</span>:<span class="hljs-string">'200'</span>,<span class="hljs-string">'name'</span>:<span class="hljs-string">'orange'</span>,<span class="hljs-string">'age'</span>:<span class="hljs-number">20</span>&#125;)print(result) <span class="hljs-comment">#有结果证明连接成功</span></code></pre></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;安装mongodb&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#安装mongodb&quot;&gt;&lt;/a&gt; 安装MongoDB&lt;/h1&gt;
+&lt;p&gt;这里只介绍用docker安装MongoDB并用navicat远程连接&lt;/p&gt;
+&lt;h2 id=&quot;安装镜像
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+      <category term="Python库" scheme="http://yoursite.com/categories/Python/Python%E5%BA%93/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="MongoDB" scheme="http://yoursite.com/tags/MongoDB/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>pymysql库</title>
