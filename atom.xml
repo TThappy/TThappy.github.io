@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-10-24T12:00:14.829Z</updated>
+  <updated>2020-10-31T14:03:24.528Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode之Python</title>
+    <link href="http://yoursite.com/2020/10/31/leetcode%E4%B9%8BPython/"/>
+    <id>http://yoursite.com/2020/10/31/leetcode%E4%B9%8BPython/</id>
+    <published>2020-10-31T13:42:36.000Z</published>
+    <updated>2020-10-31T14:03:24.528Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="两数之和"><a class="markdownIt-Anchor" href="#两数之和"></a> 两数之和</h1><p>题目：给定一个整数数组 <code>nums</code>和一个目标值 <code>target</code>，请你在该数组中找出和为目标值的那 <strong>两个</strong> 整数，并返回他们的数组下标。</p><p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。</p><p>示例:</p><div class="hljs"><pre><code class="hljs python">给定 nums = [<span class="hljs-number">2</span>, <span class="hljs-number">7</span>, <span class="hljs-number">11</span>, <span class="hljs-number">15</span>], target = <span class="hljs-number">9</span>因为 nums[<span class="hljs-number">0</span>] + nums[<span class="hljs-number">1</span>] = <span class="hljs-number">2</span> + <span class="hljs-number">7</span> = <span class="hljs-number">9</span>所以返回 [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>]</code></pre></div><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/two-sum" target="_blank" rel="noopener">https://leetcode-cn.com/problems/two-sum</a></p><h2 id="暴力解法"><a class="markdownIt-Anchor" href="#暴力解法"></a> 暴力解法</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">twoSum</span><span class="hljs-params">(self, nums: List[int], target: int)</span> -&gt; List[int]:</span>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(nums)):            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(len(nums)):                <span class="hljs-keyword">if</span> (j==i):                    <span class="hljs-keyword">break</span>                <span class="hljs-keyword">else</span>:                    <span class="hljs-keyword">if</span>  target - nums[i] == nums[j]:                        <span class="hljs-keyword">return</span> [i,j]</code></pre></div><h2 id="时间复杂度on解法"><a class="markdownIt-Anchor" href="#时间复杂度on解法"></a> 时间复杂度O(n)解法</h2><div class="hljs"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">twoSum</span><span class="hljs-params">(self, nums: List[int], target: int)</span> -&gt; List[int]:</span>        hashmap = &#123;&#125; <span class="hljs-comment">#key:num value:index</span>        <span class="hljs-keyword">for</span> index,num <span class="hljs-keyword">in</span> enumerate(nums):             another_num = target - nums[index]            <span class="hljs-keyword">if</span> another_num <span class="hljs-keyword">in</span> hashmap:                <span class="hljs-keyword">return</span> [hashmap[another_num],index]            hashmap[num] = index        <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span></code></pre></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;两数之和&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#两数之和&quot;&gt;&lt;/a&gt; 两数之和&lt;/h1&gt;
+&lt;p&gt;题目：给定一个整数数组 &lt;code&gt;nums&lt;/code&gt;和一个目标值 &lt;code&gt;target&lt;/code&gt;，请你在该数组中找出和
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/Python/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>MongoDB安装和python连接</title>

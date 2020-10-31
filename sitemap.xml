@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/10/31/leetcode%E4%B9%8BPython/</loc>
+    
+    <lastmod>2020-10-31T14:03:24.528Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/10/24/MongoDB%E5%AE%89%E8%A3%85%E5%92%8Cpython%E8%BF%9E%E6%8E%A5/</loc>
     
     <lastmod>2020-10-24T12:00:14.829Z</lastmod>
