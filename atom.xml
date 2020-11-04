@@ -53,7 +53,7 @@
     <link href="http://yoursite.com/2020/11/04/%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/"/>
     <id>http://yoursite.com/2020/11/04/%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/</id>
     <published>2020-11-04T10:44:00.000Z</published>
-    <updated>2020-11-04T10:45:51.276Z</updated>
+    <updated>2020-11-04T11:04:54.721Z</updated>
     
     <content type="html"><![CDATA[<h1 id="关闭指定端口的进程"><a class="markdownIt-Anchor" href="#关闭指定端口的进程"></a> 关闭指定端口的进程</h1><h3 id="1查找对应的端口占用的进程找到占用端口对应的程序的pid号"><a class="markdownIt-Anchor" href="#1查找对应的端口占用的进程找到占用端口对应的程序的pid号"></a> 1.查找对应的端口占用的进程，找到占用端口对应的程序的PID号：</h3><div class="hljs"><pre><code class="hljs gradle">netstat  -aon|findstr  <span class="hljs-string">"9001"</span> (windows)yum install net-tools 安装工具netstat -tunlp|<span class="hljs-keyword">grep</span> <span class="hljs-number">8090</span> 查找指定端口pid (centos7)netstat -<span class="hljs-keyword">ant</span> 查找全部端口使用情况 (centos7)<span class="hljs-keyword">Copy</span></code></pre></div><h3 id="2根据pid号找到对应的程序-找到对应的程序名"><a class="markdownIt-Anchor" href="#2根据pid号找到对应的程序-找到对应的程序名"></a> 2.根据PID号找到对应的程序 ，找到对应的程序名：</h3><div class="hljs"><pre><code class="hljs dockerfile">tasklist|findstr <span class="hljs-string">"6676"</span><span class="hljs-keyword">Copy</span></code></pre></div><h3 id="3结束该进程"><a class="markdownIt-Anchor" href="#3结束该进程"></a> 3.结束该进程</h3><div class="hljs"><pre><code class="hljs jboss-cli">taskkill <span class="hljs-string">/f</span> <span class="hljs-string">/t</span> <span class="hljs-string">/im</span> java.exekill -9 pidCopy</code></pre></div>]]></content>
     
@@ -70,10 +70,10 @@
     
       <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
     
-      <category term="Cmd" scheme="http://yoursite.com/categories/Linux/Cmd/"/>
-    
     
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+      <category term="cmd" scheme="http://yoursite.com/tags/cmd/"/>
     
   </entry>
   
