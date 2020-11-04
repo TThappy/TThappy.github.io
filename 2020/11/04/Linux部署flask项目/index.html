@@ -17,10 +17,20 @@
   <meta name="description" content="">
   <meta name="author" content="Orange">
   <meta name="keywords" content="">
-  <title>Archives - Orange</title>
+  <title>Linux部署flask项目 - Orange</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/vs2015.min.css" />
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -43,7 +53,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -141,6 +151,40 @@
             </span>
 
             
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-11-04 18:49">
+      November 4, 2020 pm
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      246 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      3
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
           </div>
 
           
@@ -151,85 +195,117 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">17 posts in total.</p>
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/07/17/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">小程序开发问题汇总</span>
-      <span style="float: right;">07-17</span>
-    </a>
-  
-    
-    <a href="/2020/07/17/Docker%E4%BB%8B%E7%BB%8D%E5%92%8C%E6%BC%94%E7%A4%BA/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Docker介绍和演示</span>
-      <span style="float: right;">07-17</span>
-    </a>
-  
-    
-    <a href="/2020/07/16/python-gui%E7%95%8C%E9%9D%A2%E5%92%8Cpygame%E5%BA%93/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">python gui界面和pygame库</span>
-      <span style="float: right;">07-16</span>
-    </a>
-  
-    
-    <a href="/2020/07/16/Django-rest-framework/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Django rest framework</span>
-      <span style="float: right;">07-16</span>
-    </a>
-  
-    
-    <a href="/2020/07/15/Django%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E5%92%8C%E7%9F%A5%E8%AF%86/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Django基础配置和知识</span>
-      <span style="float: right;">07-15</span>
-    </a>
-  
-    
-    <a href="/2020/07/15/hexo%20+github+%E9%98%BF%E9%87%8C%E4%BA%91%E5%85%A8%E7%AB%99%E5%8A%A0%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">hexo +github+阿里云全站加速搭建个人博客</span>
-      <span style="float: right;">07-15</span>
-    </a>
-  
-    
-    <a href="/2020/07/14/Docker%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Docker在linux系统安装</span>
-      <span style="float: right;">07-14</span>
-    </a>
-  
-</div>
 
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：a few seconds ago
+                
+              </p>
+            
+            <article class="markdown-body">
+              <h1 id="使用gunicorn-部署flask项目"><a class="markdownIt-Anchor" href="#使用gunicorn-部署flask项目"></a> 使用gunicorn 部署flask项目</h1>
+<p>注意：</p>
+<ul>
+<li>
+<p>提前进入anaconda的flask的环境，需要自己先配置一个flask环境，详情看Anaconda的博客</p>
+</li>
+<li>
+<p>在阿里云打开相应端口</p>
+</li>
+<li>
+<p><code>pip install gunicorn</code>安装库</p>
+</li>
+<li>
+<p>使用方式</p>
+<div class="hljs"><pre><code class="hljs python">简单地，gunicorn可以通过gunicorn -w <span class="hljs-number">4</span> -b <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:<span class="hljs-number">8001</span> run:app启动一个Flask应用。其中,
 
+-w <span class="hljs-number">4</span>是指预定义的工作进程数为<span class="hljs-number">4</span>，
+-b <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">4000</span>指绑定地址和端口
+run是flask的启动python文件，app则是flask应用程序实例
 
+其中run.py中文件的可能形式是：
+<span class="hljs-comment"># run.py</span>
+<span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask
+app = Flask(__name__)</code></pre></div>
+</li>
+</ul>
+<p>在flask项目下创建文件<code>vim gunicorn.sh</code>填写以下内容：</p>
+<div class="hljs"><pre><code class="hljs htmk">conda activate just_do_it （在linux上创建好自己的环境，可选）
+nohup gunicorn -w 4 -b 0.0.0.0:8001 run:app &amp; （不带日志）
+nohup gunicorn -w 4 -b 0.0.0.0:8001 run:app &gt; gunicorn.log 2&gt;&amp;1 &amp; （带日志）</code></pre></div>
+<p>接着输入<code>sh gunicorn.sh</code> 运行即可</p>
+<p>输入<code>netstat -ant</code>可查看已运行端口</p>
 
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Flask/">Flask</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
+                    
+                  </div>
+                
               </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/11/04/%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/">
+                        <span class="hidden-mobile">关闭端口</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
             </div>
+
+            
           </div>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -340,6 +416,31 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -347,7 +448,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "时间轴&nbsp;",
+        "Linux部署flask项目&nbsp;",
       ],
       cursorChar: "❤",
       typeSpeed: 50,
@@ -362,6 +463,21 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -375,6 +491,20 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 

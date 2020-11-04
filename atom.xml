@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-11-04T10:45:51.276Z</updated>
+  <updated>2020-11-04T11:02:12.769Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux部署flask项目</title>
+    <link href="http://yoursite.com/2020/11/04/Linux%E9%83%A8%E7%BD%B2flask%E9%A1%B9%E7%9B%AE/"/>
+    <id>http://yoursite.com/2020/11/04/Linux%E9%83%A8%E7%BD%B2flask%E9%A1%B9%E7%9B%AE/</id>
+    <published>2020-11-04T10:49:56.000Z</published>
+    <updated>2020-11-04T11:02:12.769Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用gunicorn-部署flask项目"><a class="markdownIt-Anchor" href="#使用gunicorn-部署flask项目"></a> 使用gunicorn 部署flask项目</h1><p>注意：</p><ul><li><p>提前进入anaconda的flask的环境，需要自己先配置一个flask环境，详情看Anaconda的博客</p></li><li><p>在阿里云打开相应端口</p></li><li><p><code>pip install gunicorn</code>安装库</p></li><li><p>使用方式</p><div class="hljs"><pre><code class="hljs python">简单地，gunicorn可以通过gunicorn -w <span class="hljs-number">4</span> -b <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:<span class="hljs-number">8001</span> run:app启动一个Flask应用。其中,-w <span class="hljs-number">4</span>是指预定义的工作进程数为<span class="hljs-number">4</span>，-b <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">4000</span>指绑定地址和端口run是flask的启动python文件，app则是flask应用程序实例其中run.py中文件的可能形式是：<span class="hljs-comment"># run.py</span><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flaskapp = Flask(__name__)</code></pre></div></li></ul><p>在flask项目下创建文件<code>vim gunicorn.sh</code>填写以下内容：</p><div class="hljs"><pre><code class="hljs htmk">conda activate just_do_it （在linux上创建好自己的环境，可选）nohup gunicorn -w 4 -b 0.0.0.0:8001 run:app &amp; （不带日志）nohup gunicorn -w 4 -b 0.0.0.0:8001 run:app &gt; gunicorn.log 2&gt;&amp;1 &amp; （带日志）</code></pre></div><p>接着输入<code>sh gunicorn.sh</code> 运行即可</p><p>输入<code>netstat -ant</code>可查看已运行端口</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;使用gunicorn-部署flask项目&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#使用gunicorn-部署flask项目&quot;&gt;&lt;/a&gt; 使用gunicorn 部署flask项目&lt;/h1&gt;
+&lt;p&gt;注意：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="Flask" scheme="http://yoursite.com/tags/Flask/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>关闭端口</title>
@@ -133,9 +165,9 @@
     
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
-      <category term="MongoDB" scheme="http://yoursite.com/tags/MongoDB/"/>
-    
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+      <category term="MongoDB" scheme="http://yoursite.com/tags/MongoDB/"/>
     
   </entry>
   
