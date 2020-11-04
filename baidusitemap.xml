@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://yoursite.com/2020/11/04/Anoconda%E4%BD%BF%E7%94%A8/</loc>
+    <loc>http://yoursite.com/2020/11/04/Anaconda%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2020-11-04</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2020/11/04/%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3/</loc>
     <lastmod>2020-11-04</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2020/10/31/leetcode%E4%B9%8BPython/</loc>
